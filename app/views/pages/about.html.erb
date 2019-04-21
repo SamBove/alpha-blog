@@ -1,0 +1,54 @@
+<style>
+.split {height: 30%;
+        width: 50%;
+        position: fixed;
+        z-index: 1;
+        overflow-x: hidden;
+        padding-top: 20px;}
+.left {
+  left: 0;
+  background-color: #111;
+}
+.right {
+  right: 0;
+  background-color: red;
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+h1   {color: blue;}
+p    {color: red;}
+body {
+    color: white;
+    background-color: #42e2f4;}
+</style>
+
+
+<body>
+<h1>About Page</h1>
+<%= link_to 'Home Page', root_path%>
+<br>
+<img src="http://clipart-library.com/images/Lidj8AB7T.png", width="20%">
+<div class="split left">
+  <div class="centered">
+    <h2>Left Side</h2>
+    <p style="color:white;">This is a long paragraph of text... 
+    The quick brown fox jumps over the lazy dog.
+    The quickerestest brown fox jump jumps around the laziester dawg.
+    The quickerestest brown fox jump jumps around the laziester dawg.
+    </p>
+  </div>
+</div>
+
+<div class="split right">
+  <div class="centered">
+    <h2>John Doe</h2>
+    <p style="color:white;">Some text here too.</p>
+  </div>
+</div>
+</body>
+
