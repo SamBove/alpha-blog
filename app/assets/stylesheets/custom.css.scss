@@ -16,7 +16,9 @@ $navbar-default-bg: rgb(243, 128, 61);
   color: #fff;
   text-decoration: none;
 }
-
+.color-me {
+  color: white;
+}
 .center {
   text-align: center;
 }
@@ -61,4 +63,8 @@ footer ul {
 footer ul li {
   float:left;
   margin-left: 15px;
+}
+
+.sam-center {
+  text-align: center;
 }
