@@ -45,7 +45,7 @@ $navbar-default-bg: rgb(243, 128, 61);
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid #eaeaea;
+  border-top: 1px solid #cecece;
   
 }
 
@@ -70,7 +70,7 @@ footer ul li {
 }
 
 .article-actions {
-  border-top: 1px solid #eaeaea;
+  border-top: 1px solid #cecece;
   padding-top: 5px;
 }
 
@@ -83,8 +83,13 @@ footer ul li {
   font-size: 1.5em;
 }
 
+.article-meta-details {
+  border-top: 1px solid #cecece;
+  margin-top: 10px;
+}
+
 .article-body {
-  border-top: 1px #eaeaea;
+  border-top: 1px #cecece;
   padding-top: 15px;
   padding-bottom: 10px;
 }
