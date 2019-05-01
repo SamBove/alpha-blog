@@ -12,6 +12,11 @@ class UsersController < ApplicationController
     end
 
   end
+
+  def index
+    @users = User.all
+  end
+
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
