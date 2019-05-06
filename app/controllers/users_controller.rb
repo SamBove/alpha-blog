@@ -1,13 +1,14 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :show]
-  before_action :require_same_user, only: [:edit, :update]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
+  before_action :require_admin, only: [:destroy]
   def new
     @user = User.new
   end
   def create
     @user = User.new(user_params)
     if @user.save
-      sessions[:user_id] = @user.id
+      session[:user_id] = @user.id
       flash[:success] = "Welcome to Alpha Blog, #{@user.username}"
       redirect_to articles_path
     else
@@ -33,6 +34,13 @@ class UsersController < ApplicationController
     @user_articles = @user.articles.paginate(page: params[:page], per_page: 5)
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:danger] = "User and all articles created by them have been deleted"
+    redirect_to users_path
+  end
+
   def edit
   end
   private
@@ -43,9 +51,21 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   def require_same_user
-    if !logged_in? || current_user != @user
+    if current_user != @user && !current_user.admin?
       flash[:danger] = "You can only edit your own profile"
       redirect_to root_path
+    end
+  end
+  
+  def require_admin
+    if logged_in?
+      if !current_user.admin?
+        flash[:danger] = "Only admins can perform that action"
+        redirect_to root_path
+      end
+    else
+      flash[:danger] = "Only admins can perform that action"
+        redirect_to root_path
     end
   end
 
